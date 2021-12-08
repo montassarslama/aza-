@@ -1,0 +1,65 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Colis{% endblock %}
+{% block body %}
+    <h1>Colis</h1>
+
+
+<table class="table">
+    <tbody>
+    <tr>
+        <th>Id</th>
+        <td>{{ colis.id }}</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{ colis.name }}</td>
+    </tr>
+    <tr>
+        <th>Depatrtuire</th>
+        <td>{{ colis.Destination }}</td>
+    </tr>
+    <tr>
+        <th>Destination</th>
+        <td>{{ colis.destination }}</td>
+    </tr>
+    <tr>
+        <th>Quantity</th>
+        <td>{{ colis.quantity }}</td>
+    </tr>
+    <tr>
+        <th>Prix</th>
+        <td>{{colis.prix}}</td>
+    </tr>
+
+
+
+    <tr>
+        <th>Phone</th>
+        <td>{{colis.phone }}</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>{{colis.email }}</td>
+    </tr>
+    <tr>
+        <th>Date</th>
+        <td>{{colis.date ? colis.date|date('Y-m-d') : '' }}</td>
+    </tr>
+
+    <tr>
+    <th>Image</th>
+    <td>{{ colis.image }}</td><td><img src ="{{ asset('uploads/images/' ~ colis.image) }}"
+                                       alt =""  width="200" height="200"></td>
+    </tr>
+
+
+    </tbody>
+</table>
+
+    <a href="{{ path('colis_index') }}"class="btn btn-primary btn-lg active" role="button" aria-pressed="true">back to list</a>
+    <a href="{{ path('colis_edit', {'id': colis.id}) }}" class = "btn btn-warning">edit</a>
+
+
+    {{ include('colis/_delete_form.html.twig') }}
+{% endblock %}

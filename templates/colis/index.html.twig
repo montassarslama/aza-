@@ -1,0 +1,74 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Colis {% endblock %}
+
+{% block body %}
+    <h2>Colis </h2>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ form_start(form) }}
+    <div class="form-row align-items-end" >
+        <div class="col">
+            {{ form_row(form.departure) }}
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <button type="submit" class="btn btn-info">Rechercher</button>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+
+   <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Depatrtuire</th>
+            <th>Destination</th>
+            <th>Quantity</th>
+            <th>Prix</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Date</th>
+	    <th>Image</th>
+
+		<th>actions</th>
+     
+            </tr>
+        </thead>
+        <tbody>
+        {% for colis in coli %}
+            <tr>
+                <td>{{colis.id}}</td>
+                <td>{{colis.name}}</td>
+                <td>{{colis.departure}}</td>
+                <td>{{colis.destination}}</td>
+                <td>{{colis.quantity }}</td>
+                <td>{{colis.prix}}</td>
+                <td>{{colis.phone }}</td>
+                <td>{{colis.email }}</td>
+                <td>{{colis.date ? colis.date|date('Y-m-d') : '' }}</td>
+                <td><img src ="{{ asset('uploads/images/' ~ colis.image) }}"
+   alt =""  width="100" height="100"></td>
+                 <td>
+                    <a href="{{ path('colis_show', {'id': colis.id}) }}" class = "btn btn-info">show</a>
+                    <a href="{{ path('colis_edit', {'id': colis.id}) }}" class = "btn btn-warning">edit</a>
+                     <a href="{{ path('stat_index', {'id': colis.id}) }}"class = "btn btn-warning">statistique</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('colis_new') }}"class = "btn btn-success">Create new</a>
+
+{% endblock %}

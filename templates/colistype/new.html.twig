@@ -1,0 +1,16 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}New Colistype{% endblock %}
+
+{% block body %}
+    <h1>Create new Colis type</h1>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ include('colistype/_form.html.twig') }}
+
+    <a href="{{ path('colistype_index') }}"class="btn btn-primary btn-lg active" role="button" aria-pressed="true">back to list</a>
+
+{% endblock %}

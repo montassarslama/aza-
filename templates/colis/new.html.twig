@@ -1,0 +1,15 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}New Colis{% endblock %}
+
+{% block body %}
+    <h1>Create new Colis</h1>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ include('colis/_form.html.twig') }}
+    <a href="{{ path('colis_index') }}"class="btn btn-primary btn-lg active" role="button" aria-pressed="true">back to list</a>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+
+{% block body %}
+    <h1 align ="center" style="color:green;">$$Colis$$</h1><hr>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h1 align="center" style="color:blue;">les Colis</h1>
+
+                        </div>
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <style>
+                                #customers {
+                                    font-family: Arial, Helvetica, sans-serif;
+                                    border-collapse: collapse;
+                                    width: 100%;
+                                }
+                                #customers td, #customers th {
+                                    border: 1px solid #ddd;
+                                    padding: 8px;
+                                }
+                                #customers tr:nth-child(even){background-color: #f2f2f2;}
+                                #customers tr:hover {background-color: #ddd;}
+                                #customers th {
+                                    padding-top: 12px;
+                                    padding-bottom: 12px;
+                                    text-align: left;
+                                    background-color: royalblue;
+                                    color: white;
+                                }
+                            </style>
+                        </head>
+                        </html>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <table class="table table-striped table-bordered" id="customers" >
+        <thead>
+        <tr>
+            <th class="wd-15p">
+
+                Name</th>
+            <th class="wd-15p">
+
+                Depatrtuire</th>
+            <th class="wd-15p">
+
+                Destination</th>
+            <th class="wd-15p">
+
+                Quantity</th>
+            <th class="wd-15p">
+
+                Prix</th>
+            <th class="wd-15p">
+                Phone</th>
+            <th class="wd-15p">
+
+                Email</th>
+            <th class="wd-15p">
+
+                Date</th>
+            <th class="wd-15p">
+
+                image</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for colis in coli %}
+            <tr>
+                <td>{{colis.id}}</td>
+                <td>{{colis.name}}</td>
+                <td>{{colis.departure}}</td>
+                <td>{{colis.destination}}</td>
+                <td>{{colis.quantity }}</td>
+                <td>{{colis.prix}}</td>
+                <td>{{colis.phone }}</td>
+                <td>{{colis.email }}</td>
+                <td>{{colis.date ? colis.date|date('Y-m-d') : '' }}</td>
+                <td><img src ="{{ asset('uploads/images/' ~ colis.image) }}"
+                         alt =""  width="200" height="200"></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

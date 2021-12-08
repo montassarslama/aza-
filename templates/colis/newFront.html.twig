@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Colis{% endblock %}
+
+{% block body %}
+    <h1> Add your Colis</h1>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+ 
+            <div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="tm-section-6">
+                <div class="container ie-h-align-center-fix">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-7">
+                            <div id="google-map"></div>        
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 mt-3 mt-md-0">
+                            <div class="tm-bg-white tm-p-4">
+                           
+    
+
+                                <form action="" method="post" class="contact-form">
+                                 {{ form_start(form) }}
+                                    <div class="form-group">
+                                            {{ form_widget(form.name) }}
+                                             </div>
+<div class="form-group">
+                                            {{ form_widget(form.departure) }}
+                                             </div>
+<div class="form-group">
+                                            {{ form_widget(form.destination) }}
+                                             </div>
+<div class="form-group">
+                                            {{ form_widget(form.quantity) }}
+                                             </div>
+<div class="form-group">
+                                            {{ form_widget(form.prix) }}
+                                             </div>
+<div class="form-group">
+                                            {{ form_widget(form.phone) }}
+                                             </div>
+
+                                    <div class="form-group">
+                                         {{ form_widget(form.email) }}
+                                           </div>
+                                    <div class="form-group">
+                                   
+                                        {{ form_widget(form.date) }}
+                                          </div>
+                                   
+                                    <div class="form-group">
+                                   
+                                        {{ form_widget(form.colistype) }}
+                                          </div>
+                                  <div class="form-group">
+												<label class="form-label" for="exampleInputnumber">Image</label>
+                                                {{ form_widget(form.image , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'Nom du fichier'}} ) }}
+                                        {{ form_errors(form.image) }}
+											</div>
+                                    <button type="submit" class="btn btn-primary tm-btn-primary">Send Message Now</button>
+                                 {{ form_end(form) }}
+                                </form>
+                            </div>                            
+                        </div>
+                    </div>        
+                </div>
+            </div>
+
+
+    {{ include('colis/_form.html.twig') }}
+   
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Colistype index{% endblock %}
+
+{% block body %}
+    <h1>Colis Type List </h1>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for colistype in colistypes %}
+            <tr>
+                <td>{{ colistype.id }}</td>
+                <td>{{ colistype.type }}</td>
+                <td>
+
+                    <a href="{{ path('colistype_show', {'id': colistype.id}) }}" class = "btn btn-info">show</a>
+                    <a href="{{ path('colistype_edit', {'id': colistype.id}) }}" class = "btn btn-warning">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('colis_new') }}"class = "btn btn-success">Create new</a>
+{% endblock %}

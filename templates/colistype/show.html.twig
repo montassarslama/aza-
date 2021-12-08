@@ -1,0 +1,27 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Colis type{% endblock %}
+
+{% block body %}
+    <h1>Colis type</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ colistype.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ colistype.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('colistype_index') }}"class="btn btn-primary btn-lg active" role="button" aria-pressed="true">back to list</a>
+
+
+    <a href="{{ path('colistype_edit', {'id': colistype.id}) }}">edit</a>
+
+    {{ include('colistype/_delete_form.html.twig') }}
+{% endblock %}

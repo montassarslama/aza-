@@ -5,17 +5,17 @@ namespace App\Entity;
 class Recherche
 {
 
-    private $nomlivreur;
+    private $departure;
 
 
-    public function getNomlivreur(): ?string
+    public function getDeparture(): ?string
     {
-        return $this->nomlivreur;
+        return $this->departure;
     }
 
-    public function setNomlivreur(string $nomlivreur): self
+    public function setDeparture(string $departure): self
     {
-        $this->nomlivreur = $nomlivreur;
+        $this->departure = $departure;
 
         return $this;
     }
