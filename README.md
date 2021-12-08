@@ -1,2 +1,0 @@
-"# fi-thniti" 
-# fi-thniti
